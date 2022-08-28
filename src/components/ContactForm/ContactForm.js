@@ -27,6 +27,7 @@ const ContactForm = ({ catchSubmitInfo }) => {
     clearFields();
   };
   const { name, phone } = state;
+  const isActive = name && phone;
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <label className={s.label}>
@@ -55,7 +56,7 @@ const ContactForm = ({ catchSubmitInfo }) => {
         Phone number
       </label>
 
-      <button type="submit" className={s.btn}>
+      <button type="submit" disabled={!isActive} className={s.btn}>
         Add contact
       </button>
     </form>
